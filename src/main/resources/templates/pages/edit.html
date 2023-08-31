@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>UPDATE Person</title>
+</head>
+<body>
+<!--POST - метод взаимодействия с сервером. ACTION - параметр в который пишется URL куда идет запрос-->
+<!--@${PERSON} - имя модели которая создается в методе-->
+<form th:method="PATCH" th:action="@{/{id}(id = ${userId.getId()})}" th:object="${userId}">
+  <!--    тип вводимого значния, field - назване поля в классе PERSON-->
+  <br/>
+  <label for="name">Enter name: </label>
+  <input type="text" th:field="*{name}" id="name">
+  <br/>
+  <label for="address">Enter address: </label>
+  <input type="text" th:field="*{address}" id="address">
+  <br/>
+  <input type="submit" value="UPDATE">
+</form>
+</body>
+</html>
